@@ -1,4 +1,4 @@
-name := "tp"
+name := "ProjetScala"
 
 version := "0.1"
 

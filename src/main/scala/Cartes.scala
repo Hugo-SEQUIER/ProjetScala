@@ -1,3 +1,5 @@
+object Cartes :
+
 enum Valeur :
   case AS
   case DEUX
@@ -75,3 +77,8 @@ def valueOf(s: String): Cartes = s match
   case "VALET ♦" => Cartes.P(Valeur.VALET,Couleur.CARREAUX)
   case "DAME ♦" => Cartes.P(Valeur.DAME,Couleur.CARREAUX)
   case "ROI ♦" => Cartes.P(Valeur.ROI,Couleur.CARREAUX)
+
+class PlayingCardValue extends Ordering[Cartes]{
+  override def compare(x: Cartes, y: Cartes): Int = (x,y) match
+    case (Cartes.P(v,c),Cartes.P(vs,cs)) => v > vs
+}
