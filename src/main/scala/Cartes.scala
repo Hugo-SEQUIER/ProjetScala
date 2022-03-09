@@ -80,5 +80,5 @@ object Cartes:
 
   class PlayingCardValue extends Ordering[Cartes]{
     override def compare(x: Cartes, y: Cartes): Int = (x,y) match
-      case (Cartes.P(v,c),Cartes.P(vs,cs)) => v > vs
+      case (Cartes.P(v,c),Cartes.P(vs,cs)) => if v.ordinal > vs.ordinal then v.ordinal else vs.ordinal
   }
