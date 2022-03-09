@@ -1,7 +1,6 @@
 object Cartes:
 
   enum Valeur :
-    case AS
     case DEUX
     case TROIS
     case QUATRE
@@ -14,11 +13,12 @@ object Cartes:
     case VALET
     case DAME
     case ROI
+    case AS
 
   enum Couleur :
     case PIQUE
     case TREFLE
-    case CARREAUX
+    case CARREAU
     case COEUR
 
   enum Cartes:
@@ -64,21 +64,38 @@ object Cartes:
     case "VALET ♠" => Cartes.P(Valeur.VALET,Couleur.PIQUE)
     case "DAME ♠" => Cartes.P(Valeur.DAME,Couleur.PIQUE)
     case "ROI ♠" => Cartes.P(Valeur.ROI,Couleur.PIQUE)
-    case "AS ♦" => Cartes.P(Valeur.AS,Couleur.CARREAUX)
-    case "2 ♦" => Cartes.P(Valeur.DEUX,Couleur.CARREAUX)
-    case "3 ♦" => Cartes.P(Valeur.TROIS,Couleur.CARREAUX)
-    case "4 ♦" => Cartes.P(Valeur.QUATRE,Couleur.CARREAUX)
-    case "5 ♦" => Cartes.P(Valeur.CINQ,Couleur.CARREAUX)
-    case "6 ♦" => Cartes.P(Valeur.SIX,Couleur.CARREAUX)
-    case "7 ♦" => Cartes.P(Valeur.SEPT,Couleur.CARREAUX)
-    case "8 ♦" => Cartes.P(Valeur.HUIT,Couleur.CARREAUX)
-    case "9 ♦" => Cartes.P(Valeur.NEUF,Couleur.CARREAUX)
-    case "10 ♦" => Cartes.P(Valeur.DIX,Couleur.CARREAUX)
-    case "VALET ♦" => Cartes.P(Valeur.VALET,Couleur.CARREAUX)
-    case "DAME ♦" => Cartes.P(Valeur.DAME,Couleur.CARREAUX)
-    case "ROI ♦" => Cartes.P(Valeur.ROI,Couleur.CARREAUX)
+    case "AS ♦" => Cartes.P(Valeur.AS,Couleur.CARREAU)
+    case "2 ♦" => Cartes.P(Valeur.DEUX,Couleur.CARREAU)
+    case "3 ♦" => Cartes.P(Valeur.TROIS,Couleur.CARREAU)
+    case "4 ♦" => Cartes.P(Valeur.QUATRE,Couleur.CARREAU)
+    case "5 ♦" => Cartes.P(Valeur.CINQ,Couleur.CARREAU)
+    case "6 ♦" => Cartes.P(Valeur.SIX,Couleur.CARREAU)
+    case "7 ♦" => Cartes.P(Valeur.SEPT,Couleur.CARREAU)
+    case "8 ♦" => Cartes.P(Valeur.HUIT,Couleur.CARREAU)
+    case "9 ♦" => Cartes.P(Valeur.NEUF,Couleur.CARREAU)
+    case "10 ♦" => Cartes.P(Valeur.DIX,Couleur.CARREAU)
+    case "VALET ♦" => Cartes.P(Valeur.VALET,Couleur.CARREAU)
+    case "DAME ♦" => Cartes.P(Valeur.DAME,Couleur.CARREAU)
+    case "ROI ♦" => Cartes.P(Valeur.ROI,Couleur.CARREAU)
+
+  enum Hand:
+    case Hauteur
+    case Paire
+    case DoublePaire
+    case Brelan
+    case Quinte
+    case Couleur
+    case Full
+    case Carre
+    case QuinteFlush
+    case QuinteFlushRoyale
 
   class PlayingCardValue extends Ordering[Cartes]{
     override def compare(x: Cartes, y: Cartes): Int = (x,y) match
       case (Cartes.P(v,c),Cartes.P(vs,cs)) => if v.ordinal > vs.ordinal then 1 else if v.ordinal == vs.ordinal then 0 else -1
+  }
+
+  class PlayingHandRanking extends Ordering[Hand]{
+    override def compare(x:Hand, y:Hand): Int = (x,y) match
+      case (a:Hand,b:Hand) => if a.ordinal > b.ordinal then 1 else if a.ordinal == b.ordinal then 0 else -1
   }
