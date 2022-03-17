@@ -124,56 +124,121 @@ object Cartes:
     case x::Nil => false
     case Cartes.P(v,c)::xs => if nbOccurence(xs,v)==2 then true else isPair(xs)
 
-  def rePair(l: List[Cartes]): List[Cartes] =
-    if isPair(l) then l match
+  def rePair(l: List[Cartes]): List[Cartes] = l match
       case Cartes.P(v,c)::xs => if nbOccurence(xs,v)==2 then deleteAllExcept(l,v) else rePair(xs)
-    else Nil
 
-  def isTwoPair(l: List[Cartes], pair : Int, nbPair: Int) : Boolean =
-      if (nbPair == 2) then true else l match
-        case Nil => false
-        case x::Nil => false
-        case Cartes.P(v,c)::xs => if nbOccurence(xs,v) ==2 then if v.ordinal != pair then isTwoPair(xs,v.ordinal,nbPair+1) else isTwoPair(xs,v.ordinal,nbPair) else false
+  def isTwoPair(l: List[Cartes], nbPair: Int) : Boolean =
+    if (nbPair == 2) then true else l match
+      case Nil => false
+      case x::Nil => false
+      case Cartes.P(v,c)::xs => if nbOccurence(xs,v) ==1 then isTwoPair(xs,nbPair+1) else isTwoPair(xs,nbPair)
+
+  def calculPair(l:List[Cartes]) : List[Cartes] =
+    if l.length > 4 then l match
+      case Cartes.P(v,c)::xs => deleteOccurrence(l,v)
+    else l
+
+  def re2TwoPair(l:List[Cartes]) : List[Cartes] = l match
+    case Cartes.P(va,cb)::Cartes.P(vb,c)::Nil => if va.ordinal == vb.ordinal then Cartes.P(va,cb)::Cartes.P(vb,c)::Nil else Nil
+    case Cartes.P(va,cb)::xs => if nbOccurence(xs,va) == 1 then deleteAllExcept(l,va):::re2TwoPair(deleteOccurrence(xs,va)) else re2TwoPair(xs)
+
+  def reTwoPair(l:List[Cartes]) : List[Cartes] = calculPair(re2TwoPair(l))
 
   def isBrelan(l: List[Cartes]) : Boolean = l match
     case Nil => false
     case Cartes.P(va,c)::Nil => false
-    case Cartes.P(va,c)::xs => if nbOccurence(xs,va) == 3 then true else isBrelan(xs)
+    case Cartes.P(va,c)::xs => if nbOccurence(xs,va) == 2 then true else isBrelan(xs)
 
-  def reBrelan(l: List[Cartes]) : List[Cartes] =
-    if isBrelan(l) then l match
-      case Cartes.P(v,c)::xs => if nbOccurence(xs,v)==3 then deleteAllExcept(l,v) else reBrelan(xs)
-    else Nil
+  def reBrelan(l: List[Cartes]) : List[Cartes] = l match
+    case Cartes.P(v,c)::xs => if nbOccurence(xs,v)==2 then deleteAllExcept(l,v) else reBrelan(xs)
 
   def isQuinte(l: List[Cartes], v: Int, nbSui : Int) : Boolean = (l,v) match
     case (Cartes.P(va,c)::xs,-1) => isQuinte(xs,va.ordinal,0)
-    case (_,va) => if va != -1 then l match
-      case Nil => false
-      case Cartes.P(va,c)::Nil =>  (va.ordinal - v == 1 && nbSui >= 4)
-      case Cartes.P(va,c)::xs => if va.ordinal - v == 1 then isQuinte(xs,va.ordinal,nbSui+1) else isQuinte(xs,va.ordinal,nbSui)
+    case (_,va) =>
+      if va != -1 then l match
+        case Nil => false
+        case Cartes.P(va,c)::Nil =>  (va.ordinal - v == 1 && nbSui >= 4)
+        case Cartes.P(va,c)::xs => if va.ordinal - v == 1 then isQuinte(xs,va.ordinal,nbSui+1) else isQuinte(xs,va.ordinal,nbSui)
       else false
 
-  def reQuinte(l : List[Cartes]): List[Cartes] =
-    if isQuinte(l,-1,0) then l match
-      case Cartes.P(va,_)::Cartes.P(vb,c)::Nil => if vb.ordinal - va.ordinal == 1 then Cartes.P(vb,c) else Nil
-      case Cartes.P(va,c)::Cartes.P(vb,_)::xs => if vb.ordinal - va.ordinal == 1 then Cartes.P(va,c)::reQuinte(xs) else reQuinte(xs)
-    else Nil
+  def reQuinte(l : List[Cartes]): List[Cartes] = l match
+    case Cartes.P(va,_)::Cartes.P(vb,c)::Nil => if vb.ordinal - va.ordinal == 1 then Cartes.P(vb,c)::Nil else Nil
+    case Cartes.P(va,c)::Cartes.P(vb,_)::xs => if vb.ordinal - va.ordinal == 1 then Cartes.P(va,c)::reQuinte(xs) else reQuinte(xs)
+
 
   def isFlush(l: List[Cartes], nbCoeur: Int, nbTrefle: Int, nbCarreau: Int, nbPique: Int) : Boolean =
     if (nbCoeur >= 5 || nbTrefle >= 5 || nbCarreau >= 5 || nbPique >= 5) then true else l match
       case Nil => false
-      case Cartes.P(va,c)::Nil => if c == Couleur.COEUR then isFlush(Nil,nbCoeur+1,nbTrefle,nbCarreau,nbPique) else if c == Couleur.TREFLE then isFlush(Nil,nbCoeur,nbTrefle+1,nbCarreau,nbPique) else if c == Couleur.CARREAU then isFlush(Nil,nbCoeur,nbTrefle,nbCarreau+1,nbPique) else isFlush(Nil,nbCoeur,nbTrefle,nbCarreau,nbPique+1)
-      case Cartes.P(va,c)::xs => if c == Couleur.COEUR then isFlush(xs,nbCoeur+1,nbTrefle,nbCarreau,nbPique) else if c == Couleur.TREFLE then isFlush(xs,nbCoeur,nbTrefle+1,nbCarreau,nbPique) else if c == Couleur.CARREAU then isFlush(xs,nbCoeur,nbTrefle,nbCarreau+1,nbPique) else isFlush(xs,nbCoeur,nbTrefle,nbCarreau,nbPique+1)
+      case Cartes.P(va,c)::Nil => if c == Couleur.COEUR then isFlush(Nil,nbCoeur+1,nbTrefle,nbCarreau,nbPique) else
+        if c == Couleur.TREFLE then isFlush(Nil,nbCoeur,nbTrefle+1,nbCarreau,nbPique) else
+          if c == Couleur.CARREAU then isFlush(Nil,nbCoeur,nbTrefle,nbCarreau+1,nbPique) else isFlush(Nil,nbCoeur,nbTrefle,nbCarreau,nbPique+1)
+      case Cartes.P(va,c)::xs => if c == Couleur.COEUR then isFlush(xs,nbCoeur+1,nbTrefle,nbCarreau,nbPique) else
+        if c == Couleur.TREFLE then isFlush(xs,nbCoeur,nbTrefle+1,nbCarreau,nbPique) else
+          if c == Couleur.CARREAU then isFlush(xs,nbCoeur,nbTrefle,nbCarreau+1,nbPique) else isFlush(xs,nbCoeur,nbTrefle,nbCarreau,nbPique+1)
+
+  def reCoulFlush(l: List[Cartes], nbCoeur: Int, nbTrefle: Int, nbCarreau: Int, nbPique: Int) : Couleur =
+    if isFlush(l,nbCoeur,nbTrefle,nbCarreau,nbPique) then
+      if nbCoeur >= 5 then Couleur.COEUR else
+        if nbTrefle >= 5 then Couleur.TREFLE else
+          if nbCarreau >= 5 then Couleur.CARREAU else
+            if nbPique >= 5 then Couleur.PIQUE else null
+    else null
+
+  def reFlush(l:List[Cartes],coul: Couleur) : List[Cartes] =  l match
+    case Cartes.P(v,c)::Nil => if c == coul then Cartes.P(v,c)::Nil else Nil
+    case Cartes.P(v,c)::xs => if c == coul then Cartes.P(v,c)::reFlush(xs,coul) else reFlush(xs,coul)
 
   def isFull(l: List[Cartes]): Boolean =
     if isBrelan(l) then isPair(deleteOccurrence(l,reValueCard(reBrelan(l)))) else false
 
+  /** Prends une liste de 2 paires */
+  def triPair(l: List[Cartes]): List[Cartes] = l match
+    case Cartes.P(v,c)::xs => deleteOccurrence(l,v)
+
+  def reFull(l:List[Cartes], bre:List[Cartes],n :Int): List[Cartes] =
+    if n < 0 then bre match
+      case Nil => reFull(l,reBrelan(l),n)
+      case Cartes.P(v,c)::_ => reFull(deleteOccurrence(l,v),bre,1)
+    else if isTwoPair(l,0) then bre:::triPair(l) else bre:::rePair(l)
+
   def isCarre(l: List[Cartes]) : Boolean = l match
     case Nil => false
     case Cartes.P(va,c)::Nil => false
-    case Cartes.P(va,c)::xs => if nbOccurence(xs,va) == 4 then true else isCarre(xs)
+    case Cartes.P(va,c)::xs => if nbOccurence(xs,va) == 3 then true else isCarre(xs)
+
+  def reCarre(l: List[Cartes]): List[Cartes] = l match
+    case Cartes.P(v,c)::xs => if nbOccurence(xs,v)==3 then deleteAllExcept(l,v) else reCarre(xs)
 
   def isQuinteFlush(l: List[Cartes]) : Boolean =
     if isQuinte(l,-1,0) then isFlush(reQuinte(l),0,0,0,0)
     else false
 
+  /** On rentre en paramètre une liste qui contiendra après le premier appel seulement des cartes de la Flush */
+  def reQuinteFlush(l:List[Cartes], n:Int): List[Cartes] =
+    if n < 0 then reQuinteFlush(reFlush(l,reCoulFlush(l,0,0,0,0)),1) else l match
+      case Cartes.P(va,_)::Cartes.P(vb,c)::Nil => if vb.ordinal - va.ordinal == 1 then Cartes.P(vb,c)::Nil else Nil
+      case Cartes.P(va,c)::Cartes.P(vb,_)::xs => if vb.ordinal - va.ordinal == 1 then Cartes.P(va,c)::reQuinteFlush(xs,1) else reQuinteFlush(xs,1)
+
+  def isQuinteFlushRoyale(l: List[Cartes], col : Couleur, start : Int, nbSuit : Int) : Boolean =
+    if start <0 then isQuinteFlushRoyale(l,reCoulFlush(l,0,0,0,0),1,0) else l match
+      case Cartes.P(va,c)::Nil =>  va == Valeur.AS && c == col && nbSuit>=4
+      case Cartes.P(va,c)::xs => if va.ordinal == (Valeur.AS.ordinal-4 + nbSuit) then isQuinteFlushRoyale(xs,col,1,nbSuit+1) else isQuinteFlushRoyale(xs,col,1,nbSuit)
+
+  def reQuinteFlushRoyale(l: List[Cartes], n:Int, nbSuit: Int) : List[Cartes] =
+    if n<0 then reQuinteFlushRoyale(reFlush(l,reCoulFlush(l,0,0,0,0)),1,0) else l match
+      case Cartes.P(va,c)::Nil => if va == Valeur.AS then Cartes.P(va,c)::Nil else return Nil
+      case Cartes.P(va,c)::xs => if va.ordinal == (Valeur.AS.ordinal-4 + nbSuit) then Cartes.P(va,c)::reQuinteFlushRoyale(xs,1,nbSuit+1) else reQuinteFlushRoyale(xs,1,nbSuit)
+
+  def bestCard(l:List[Cartes]) : List[Cartes] = l match
+    case Cartes.P(va,c)::Nil => Cartes.P(va,c)::Nil
+    case x::xs => bestCard(xs)
+
+  def bestHand(l:List[Cartes]) : List[Cartes] =
+    if isQuinteFlush(l) then
+      if isQuinteFlushRoyale(l,Couleur.CARREAU,-1,0) then reQuinteFlushRoyale(l,-1,0) else reQuinteFlush(l,-1) else
+        if isCarre(l) then reCarre(l) else
+          if isFull(l) then reFull(l,Nil,-1) else
+            if isFlush(l,0,0,0,0) then reFlush(l,reCoulFlush(l,0,0,0,0)) else
+              if isQuinte(l,-1,0) then reQuinte(l) else
+                if isBrelan(l) then reBrelan(l) else
+                  if isTwoPair(l,0) then reTwoPair(l) else bestCard(l)
