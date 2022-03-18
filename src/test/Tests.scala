@@ -91,4 +91,75 @@ class Tests extends AnyFlatSpec {
 
     bestHand(l) shouldBe corre
   }
+
+  "retirer une carte" should "be defined" in {
+    val l1 = List(Cartes.P(Valeur.SIX,Couleur.PIQUE),Cartes.P(Valeur.SEPT,Couleur.PIQUE),Cartes.P(Valeur.HUIT,Couleur.PIQUE),Cartes.P(Valeur.VALET,Couleur.CARREAU))
+    val test = Cartes.P(Valeur.HUIT,Couleur.PIQUE)
+    val l2 = List(Cartes.P(Valeur.SIX,Couleur.PIQUE),Cartes.P(Valeur.SEPT,Couleur.PIQUE),Cartes.P(Valeur.VALET,Couleur.CARREAU))
+
+    retirerUneCarte(l1,test) shouldBe l2
+  }
+
+  "retirer des cartes" should "be defined" in {
+    val l1 = List(Cartes.P(Valeur.AS,Couleur.COEUR), Cartes.P(Valeur.DEUX,Couleur.COEUR), Cartes.P(Valeur.TROIS,Couleur.COEUR), Cartes.P(Valeur.QUATRE,Couleur.COEUR), Cartes.P(Valeur.CINQ,Couleur.COEUR), Cartes.P(Valeur.SIX,Couleur.COEUR), Cartes.P(Valeur.SEPT,Couleur.COEUR), Cartes.P(Valeur.HUIT,Couleur.COEUR), Cartes.P(Valeur.NEUF,Couleur.COEUR), Cartes.P(Valeur.DIX,Couleur.COEUR), Cartes.P(Valeur.VALET,Couleur.COEUR), Cartes.P(Valeur.DAME,Couleur.COEUR), Cartes.P(Valeur.ROI,Couleur.COEUR), Cartes.P(Valeur.AS,Couleur.TREFLE), Cartes.P(Valeur.DEUX,Couleur.TREFLE), Cartes.P(Valeur.TROIS,Couleur.TREFLE), Cartes.P(Valeur.QUATRE,Couleur.TREFLE), Cartes.P(Valeur.CINQ,Couleur.TREFLE), Cartes.P(Valeur.SIX,Couleur.TREFLE), Cartes.P(Valeur.SEPT,Couleur.TREFLE), Cartes.P(Valeur.HUIT,Couleur.TREFLE), Cartes.P(Valeur.NEUF,Couleur.TREFLE), Cartes.P(Valeur.DIX,Couleur.TREFLE), Cartes.P(Valeur.VALET,Couleur.TREFLE), Cartes.P(Valeur.DAME,Couleur.TREFLE), Cartes.P(Valeur.ROI,Couleur.TREFLE), Cartes.P(Valeur.AS,Couleur.PIQUE), Cartes.P(Valeur.DEUX,Couleur.PIQUE), Cartes.P(Valeur.TROIS,Couleur.PIQUE), Cartes.P(Valeur.QUATRE,Couleur.PIQUE), Cartes.P(Valeur.CINQ,Couleur.PIQUE), Cartes.P(Valeur.SIX,Couleur.PIQUE), Cartes.P(Valeur.SEPT,Couleur.PIQUE), Cartes.P(Valeur.HUIT,Couleur.PIQUE), Cartes.P(Valeur.NEUF,Couleur.PIQUE)
+    )
+
+    val l2 = List (Cartes.P(Valeur.DIX,Couleur.PIQUE), Cartes.P(Valeur.VALET,Couleur.PIQUE), Cartes.P(Valeur.DAME,Couleur.PIQUE), Cartes.P(Valeur.ROI,Couleur.PIQUE), Cartes.P(Valeur.AS,Couleur.CARREAU), Cartes.P(Valeur.DEUX,Couleur.CARREAU), Cartes.P(Valeur.TROIS,Couleur.CARREAU), Cartes.P(Valeur.QUATRE,Couleur.CARREAU), Cartes.P(Valeur.CINQ,Couleur.CARREAU), Cartes.P(Valeur.SIX,Couleur.CARREAU), Cartes.P(Valeur.SEPT,Couleur.CARREAU), Cartes.P(Valeur.HUIT,Couleur.CARREAU), Cartes.P(Valeur.NEUF,Couleur.CARREAU), Cartes.P(Valeur.DIX,Couleur.CARREAU), Cartes.P(Valeur.VALET,Couleur.CARREAU), Cartes.P(Valeur.DAME,Couleur.CARREAU), Cartes.P(Valeur.ROI,Couleur.CARREAU)
+    )
+
+    retirerDesCartes(l1) shouldBe l2
+  }
+
+  "toutes possibilitees pour 6V2" should "be defined" in {
+    val l0 = List(Cartes.P(Valeur.AS,Couleur.COEUR), Cartes.P(Valeur.DEUX,Couleur.COEUR), Cartes.P(Valeur.TROIS,Couleur.COEUR), Cartes.P(Valeur.QUATRE,Couleur.COEUR), Cartes.P(Valeur.CINQ,Couleur.COEUR), Cartes.P(Valeur.SIX,Couleur.COEUR))
+    val l1 = l0:::Cartes.P(Valeur.SEPT,Couleur.COEUR)::Nil
+    val l2 = l0:::Cartes.P(Valeur.HUIT,Couleur.COEUR)::Nil
+    val l3 = l0:::Cartes.P(Valeur.NEUF,Couleur.COEUR)::Nil
+    val l4 = l0:::Cartes.P(Valeur.DIX,Couleur.COEUR)::Nil
+    val l5 = l0:::Cartes.P(Valeur.VALET,Couleur.COEUR)::Nil
+    val l6 = l0:::Cartes.P(Valeur.DAME,Couleur.COEUR)::Nil
+    val l7 = l0:::Cartes.P(Valeur.ROI,Couleur.COEUR)::Nil
+    val l8 = l0:::Cartes.P(Valeur.AS,Couleur.TREFLE)::Nil
+    val l9 = l0:::Cartes.P(Valeur.DEUX,Couleur.TREFLE)::Nil
+    val l10 =l0:::Cartes.P(Valeur.TROIS,Couleur.TREFLE)::Nil
+    val l11= l0:::Cartes.P(Valeur.QUATRE,Couleur.TREFLE)::Nil
+    val l12 =l0:::Cartes.P(Valeur.CINQ,Couleur.TREFLE)::Nil
+    val l13 =l0:::Cartes.P(Valeur.SIX,Couleur.TREFLE)::Nil
+    val l14= l0:::Cartes.P(Valeur.SEPT,Couleur.TREFLE)::Nil
+    val l15= l0:::Cartes.P(Valeur.HUIT,Couleur.TREFLE)::Nil
+    val l16= l0:::Cartes.P(Valeur.NEUF,Couleur.TREFLE)::Nil
+    val l17= l0:::Cartes.P(Valeur.DIX,Couleur.TREFLE)::Nil
+    val l18= l0:::Cartes.P(Valeur.VALET,Couleur.TREFLE)::Nil
+    val l19= l0:::Cartes.P(Valeur.DAME,Couleur.TREFLE)::Nil
+    val l20= l0:::Cartes.P(Valeur.ROI,Couleur.TREFLE)::Nil
+    val l21= l0:::Cartes.P(Valeur.AS,Couleur.PIQUE)::Nil
+    val l22= l0:::Cartes.P(Valeur.DEUX,Couleur.PIQUE)::Nil
+    val l23= l0:::Cartes.P(Valeur.TROIS,Couleur.PIQUE)::Nil
+    val l24= l0:::Cartes.P(Valeur.QUATRE,Couleur.PIQUE)::Nil
+    val l25= l0:::Cartes.P(Valeur.CINQ,Couleur.PIQUE)::Nil
+    val l26= l0:::Cartes.P(Valeur.SIX,Couleur.PIQUE)::Nil
+    val l27= l0:::Cartes.P(Valeur.SEPT,Couleur.PIQUE)::Nil
+    val l28= l0:::Cartes.P(Valeur.HUIT,Couleur.PIQUE)::Nil
+    val l29 = l0:::Cartes.P(Valeur.NEUF,Couleur.PIQUE)::Nil
+    val l30 = l0:::Cartes.P(Valeur.DIX,Couleur.PIQUE)::Nil
+    val l31 = l0:::Cartes.P(Valeur.VALET,Couleur.PIQUE)::Nil
+    val l32 = l0:::Cartes.P(Valeur.DAME,Couleur.PIQUE)::Nil
+    val l33 = l0:::Cartes.P(Valeur.ROI,Couleur.PIQUE)::Nil
+    val l34 = l0:::Cartes.P(Valeur.AS,Couleur.CARREAU)::Nil
+    val l35 = l0:::Cartes.P(Valeur.DEUX,Couleur.CARREAU)::Nil
+    val l36 = l0:::Cartes.P(Valeur.TROIS,Couleur.CARREAU)::Nil
+    val l37 = l0:::Cartes.P(Valeur.QUATRE,Couleur.CARREAU)::Nil
+    val l38 = l0:::Cartes.P(Valeur.CINQ,Couleur.CARREAU)::Nil
+    val l39 = l0:::Cartes.P(Valeur.SIX,Couleur.CARREAU)::Nil
+    val l40 = l0:::Cartes.P(Valeur.SEPT,Couleur.CARREAU)::Nil
+    val l41 = l0:::Cartes.P(Valeur.HUIT,Couleur.CARREAU)::Nil
+    val l42= l0:::Cartes.P(Valeur.NEUF,Couleur.CARREAU)::Nil
+    val l43= l0:::Cartes.P(Valeur.DIX,Couleur.CARREAU)::Nil
+    val l44= l0:::Cartes.P(Valeur.VALET,Couleur.CARREAU)::Nil
+    val l45= l0:::Cartes.P(Valeur.DAME,Couleur.CARREAU)::Nil
+    val l46= l0:::Cartes.P(Valeur.ROI,Couleur.CARREAU)::Nil
+    val finale = List(l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13,l14,l15,l16,l17,l18,l19,l20,l21,l22,l23,l24,l25,l26,l27,l28,l29,l30,l31,l32,l33,l34,l35,l36,l37,l38,l39,l40,l41,l42,l43,l44,l45,l46)
+
+    toutesPossibilitesPour6V2(l0) shouldBe finale
+  }
 }

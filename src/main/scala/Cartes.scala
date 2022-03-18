@@ -1,3 +1,5 @@
+import Cartes.Cartes
+
 object Cartes:
 
   enum Valeur :
@@ -99,6 +101,85 @@ object Cartes:
     override def compare(x:Hand, y:Hand): Int = (x,y) match
       case (a:Hand,b:Hand) => if a.ordinal > b.ordinal then 1 else if a.ordinal == b.ordinal then 0 else -1
   }
+
+ //entrée : rien
+ //sortie : liste contenant toutes les cartes du jeu (52 cartes)
+  def touteLesCartes() : List[Cartes] = List(
+    Cartes.P(Valeur.AS,Couleur.COEUR),
+    Cartes.P(Valeur.DEUX,Couleur.COEUR),
+    Cartes.P(Valeur.TROIS,Couleur.COEUR),
+    Cartes.P(Valeur.QUATRE,Couleur.COEUR),
+    Cartes.P(Valeur.CINQ,Couleur.COEUR),
+    Cartes.P(Valeur.SIX,Couleur.COEUR),
+    Cartes.P(Valeur.SEPT,Couleur.COEUR),
+    Cartes.P(Valeur.HUIT,Couleur.COEUR),
+    Cartes.P(Valeur.NEUF,Couleur.COEUR),
+    Cartes.P(Valeur.DIX,Couleur.COEUR),
+    Cartes.P(Valeur.VALET,Couleur.COEUR),
+    Cartes.P(Valeur.DAME,Couleur.COEUR),
+    Cartes.P(Valeur.ROI,Couleur.COEUR),
+    Cartes.P(Valeur.AS,Couleur.TREFLE),
+    Cartes.P(Valeur.DEUX,Couleur.TREFLE),
+    Cartes.P(Valeur.TROIS,Couleur.TREFLE),
+    Cartes.P(Valeur.QUATRE,Couleur.TREFLE),
+    Cartes.P(Valeur.CINQ,Couleur.TREFLE),
+    Cartes.P(Valeur.SIX,Couleur.TREFLE),
+    Cartes.P(Valeur.SEPT,Couleur.TREFLE),
+    Cartes.P(Valeur.HUIT,Couleur.TREFLE),
+    Cartes.P(Valeur.NEUF,Couleur.TREFLE),
+    Cartes.P(Valeur.DIX,Couleur.TREFLE),
+    Cartes.P(Valeur.VALET,Couleur.TREFLE),
+    Cartes.P(Valeur.DAME,Couleur.TREFLE),
+    Cartes.P(Valeur.ROI,Couleur.TREFLE),
+    Cartes.P(Valeur.AS,Couleur.PIQUE),
+    Cartes.P(Valeur.DEUX,Couleur.PIQUE),
+    Cartes.P(Valeur.TROIS,Couleur.PIQUE),
+    Cartes.P(Valeur.QUATRE,Couleur.PIQUE),
+    Cartes.P(Valeur.CINQ,Couleur.PIQUE),
+    Cartes.P(Valeur.SIX,Couleur.PIQUE),
+    Cartes.P(Valeur.SEPT,Couleur.PIQUE),
+    Cartes.P(Valeur.HUIT,Couleur.PIQUE),
+    Cartes.P(Valeur.NEUF,Couleur.PIQUE),
+    Cartes.P(Valeur.DIX,Couleur.PIQUE),
+    Cartes.P(Valeur.VALET,Couleur.PIQUE),
+    Cartes.P(Valeur.DAME,Couleur.PIQUE),
+    Cartes.P(Valeur.ROI,Couleur.PIQUE),
+    Cartes.P(Valeur.AS,Couleur.CARREAU),
+    Cartes.P(Valeur.DEUX,Couleur.CARREAU),
+    Cartes.P(Valeur.TROIS,Couleur.CARREAU),
+    Cartes.P(Valeur.QUATRE,Couleur.CARREAU),
+    Cartes.P(Valeur.CINQ,Couleur.CARREAU),
+    Cartes.P(Valeur.SIX,Couleur.CARREAU),
+    Cartes.P(Valeur.SEPT,Couleur.CARREAU),
+    Cartes.P(Valeur.HUIT,Couleur.CARREAU),
+    Cartes.P(Valeur.NEUF,Couleur.CARREAU),
+    Cartes.P(Valeur.DIX,Couleur.CARREAU),
+    Cartes.P(Valeur.VALET,Couleur.CARREAU),
+    Cartes.P(Valeur.DAME,Couleur.CARREAU),
+    Cartes.P(Valeur.ROI,Couleur.CARREAU)
+  )
+
+  //entrée : une liste de carte et une carte
+  //sortie : la liste de carte sans la carte c1
+  def retirerUneCarte(l1:List[Cartes],c1:Cartes) : List[Cartes]= (l1,c1) match
+     case (Nil,_) => l1
+     case (x::y,_) => if(x==c1) then y else x::retirerUneCarte(y,c1)
+
+  //entrée : une liste de carte et le jeu complet
+  //sortie : une liste contenant toute les cartes moins les cartes qui sont dans l1
+  def retirerDesCartes(l1:List[Cartes]) : List[Cartes] = l1 match
+      case Nil => touteLesCartes()
+      case x::y => retirerUneCarte(retirerDesCartes(y),x)
+
+  //entrée : une liste de cartes de taille 6 et la liste de toutes les cartes moins les 6 cartes
+  //sortie : une liste de listes de taille 7 incluant la liste d'avant avec toutes les combinaisons possibles
+  def toutesPossibilitesPour6(l1:List[Cartes],l2:List[Cartes]) : List[List[Cartes]] = l2 match
+      case Nil => Nil
+      case c::d => List(l1:::c::Nil):::toutesPossibilitesPour6(l1,d)
+
+  def toutesPossibilitesPour6V2(l1:List[Cartes]) : List[List[Cartes]] = toutesPossibilitesPour6(l1,retirerDesCartes(l1))
+
+
 
   def nbOccurence(l: List[Cartes],v : Valeur) : Int = l match
     case Nil => 0
@@ -254,3 +335,6 @@ object Cartes:
                     if isPair(l) then rePair(l)
                     else
                       bestCard(l)
+
+  def probabilityHighCard(l:List[Cartes],m:Int) : Int = 1;
+
