@@ -7,27 +7,6 @@
     <list default="true" id="6a0f1e15-dda1-447a-8d70-46a3f92733a9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Cartes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Cartes.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Tests.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Tests.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$$anon$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$$anon$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$$anon$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$$anon$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$$anon$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$$anon$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Cartes$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Cartes$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Cartes$P$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Cartes$P$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Cartes$P.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Cartes$P.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Cartes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Cartes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Couleur$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Couleur$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Couleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Couleur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Hand$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Hand$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Hand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Hand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$PlayingCardValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$PlayingCardValue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$PlayingHandRanking.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$PlayingHandRanking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Valeur$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Valeur$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Valeur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Valeur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/test-classes/Tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/test-classes/Tests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/test-classes/Tests.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/test-classes/Tests.tasty" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +129,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1647626308609</updated>
-      <workItem from="1647626313396" duration="12286000" />
+      <workItem from="1647626313396" duration="14856000" />
     </task>
     <servers />
   </component>

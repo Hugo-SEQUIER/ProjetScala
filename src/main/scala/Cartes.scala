@@ -177,9 +177,30 @@ object Cartes:
       case Nil => Nil
       case c::d => List(l1:::c::Nil):::toutesPossibilitesPour6(l1,d)
 
+  //entrée : une liste de cartes de taille 6
+  //sortie : une liste de listes de taille 7 incluant la liste d'avant avec toutes les combinaisons possibles
   def toutesPossibilitesPour6V2(l1:List[Cartes]) : List[List[Cartes]] = toutesPossibilitesPour6(l1,retirerDesCartes(l1))
 
+  //entrée : une liste de carte de taille 5, une liste de carte contenant toutes les cartes du jeu sans les cartes
+  //de l1 et une liste de cartes contenant toutes les cartes du jeu moins celles de l1 et moins la première
+  def toutesPossibilitesPour5(l1:List[Cartes],l2:List[Cartes],l3:List[Cartes]) : List[List[Cartes]] = (l2,l3) match
+    case (a::Nil,Nil) => Nil
+    case (a::b,Nil) => toutesPossibilitesPour5(l1,b,suivant(b))
+    case (a::b,c::d) => List(l1:::a::Nil:::c::Nil):::toutesPossibilitesPour5(l1,l2,d)
 
+  //entrée : une liste de cartes de taille 5
+  //sortie : une liste de listes de taille 7 incluant la liste d'avant avec toutes les combinaisons possibles
+  def toutesPossibilitesPour5V2(l1:List[Cartes]) : List[List[Cartes]] = toutesPossibilitesPour5(l1,retirerDesCartes(l1),retirerDesCartesEtLaPremiere(l1))
+
+  //entrée : une liste de cartes
+  //sortie : une liste contenant toutes les cartes du jeu moins celles de l1 et sans le premier élément
+  def retirerDesCartesEtLaPremiere(l1:List[Cartes]) : List[Cartes] = l1 match
+    case (x::y) => retirerDesCartes(y)
+
+  //entrée : une liste de cartes
+  //sortie : la même liste sans la première carte
+  def suivant(l1:List[Cartes]) : List[Cartes] = l1 match
+    case (x::y) => y
 
   def nbOccurence(l: List[Cartes],v : Valeur) : Int = l match
     case Nil => 0
