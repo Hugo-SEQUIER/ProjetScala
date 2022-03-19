@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0f1e15-dda1-447a-8d70-46a3f92733a9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/Cartes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Cartes.scala" afterDir="false" />
-    </list>
+    <list default="true" id="6a0f1e15-dda1-447a-8d70-46a3f92733a9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,6 +127,7 @@
       <option name="presentableId" value="Default" />
       <updated>1647626308609</updated>
       <workItem from="1647626313396" duration="14856000" />
+      <workItem from="1647645368140" duration="27000" />
     </task>
     <servers />
   </component>
