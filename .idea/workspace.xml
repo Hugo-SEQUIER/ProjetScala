@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0f1e15-dda1-447a-8d70-46a3f92733a9" name="Changes" comment="" />
+    <list default="true" id="6a0f1e15-dda1-447a-8d70-46a3f92733a9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/Cartes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Cartes.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/Tests.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Tests.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/test-classes/Tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/test-classes/Tests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/test-classes/Tests.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/test-classes/Tests.tasty" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,23 +43,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../tp/build.sbt" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
-  <component name="RunManager" selected="ScalaTest.Tests.toutes possibilitees pour 6V2 should be defined">
-    <configuration name="Tests" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
-      <module name="ProjetScala" />
-      <option name="allowRunningInParallel" value="false" />
-      <option name="projectPathOnTarget" />
-      <option name="selectedOptions">
-        <list />
-      </option>
-      <option name="testKind" value="Class" />
-      <option name="testClassPath" value="Tests" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tests.BestHand Carre should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+  <component name="RunManager" selected="ScalaTest.Tests.test probabilite5 should be defined">
+    <configuration name="Tests.test probabilite2 should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="ProjetScala" />
       <option name="allowRunningInParallel" value="false" />
       <option name="projectPathOnTarget" />
@@ -58,12 +55,12 @@
       </option>
       <option name="testKind" value="Test name" />
       <option name="testClassPath" value="Tests" />
-      <option name="testName" value="BestHand Carre should be defined" />
+      <option name="testName" value="test probabilite2 should be defined" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tests.retirer des cartes should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+    <configuration name="Tests.test probabilite3 should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="ProjetScala" />
       <option name="allowRunningInParallel" value="false" />
       <option name="projectPathOnTarget" />
@@ -72,12 +69,12 @@
       </option>
       <option name="testKind" value="Test name" />
       <option name="testClassPath" value="Tests" />
-      <option name="testName" value="retirer des cartes should be defined" />
+      <option name="testName" value="test probabilite3 should be defined" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tests.retirer une carte should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+    <configuration name="Tests.test probabilite4 should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="ProjetScala" />
       <option name="allowRunningInParallel" value="false" />
       <option name="projectPathOnTarget" />
@@ -86,12 +83,12 @@
       </option>
       <option name="testKind" value="Test name" />
       <option name="testClassPath" value="Tests" />
-      <option name="testName" value="retirer une carte should be defined" />
+      <option name="testName" value="test probabilite4 should be defined" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tests.toutes possibilitees pour 6V2 should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+    <configuration name="Tests.test probabilite5 should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="ProjetScala" />
       <option name="allowRunningInParallel" value="false" />
       <option name="projectPathOnTarget" />
@@ -100,18 +97,32 @@
       </option>
       <option name="testKind" value="Test name" />
       <option name="testClassPath" value="Tests" />
-      <option name="testName" value="toutes possibilitees pour 6V2 should be defined" />
+      <option name="testName" value="test probabilite5 should be defined" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests.test probabilite6 should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="ProjetScala" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="testKind" value="Test name" />
+      <option name="testClassPath" value="Tests" />
+      <option name="testName" value="test probabilite6 should be defined" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="ScalaTest.Tests.toutes possibilitees pour 6V2 should be defined" />
-        <item itemvalue="ScalaTest.Tests.retirer des cartes should be defined" />
-        <item itemvalue="ScalaTest.Tests.retirer une carte should be defined" />
-        <item itemvalue="ScalaTest.Tests.BestHand Carre should be defined" />
-        <item itemvalue="ScalaTest.Tests" />
+        <item itemvalue="ScalaTest.Tests.test probabilite5 should be defined" />
+        <item itemvalue="ScalaTest.Tests.test probabilite6 should be defined" />
+        <item itemvalue="ScalaTest.Tests.test probabilite4 should be defined" />
+        <item itemvalue="ScalaTest.Tests.test probabilite3 should be defined" />
+        <item itemvalue="ScalaTest.Tests.test probabilite2 should be defined" />
       </list>
     </recent_temporary>
   </component>
@@ -128,6 +139,9 @@
       <updated>1647626308609</updated>
       <workItem from="1647626313396" duration="14856000" />
       <workItem from="1647645368140" duration="27000" />
+      <workItem from="1647685777061" duration="196000" />
+      <workItem from="1647686375932" duration="2000" />
+      <workItem from="1647703979102" duration="14541000" />
     </task>
     <servers />
   </component>
@@ -144,5 +158,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$USER_HOME$" />
+    </ignored-roots>
   </component>
 </project>

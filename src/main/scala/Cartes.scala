@@ -1,5 +1,7 @@
 import Cartes.Cartes
 
+import scala.annotation.tailrec
+
 object Cartes:
 
   enum Valeur :
@@ -163,7 +165,7 @@ object Cartes:
   //sortie : la liste de carte sans la carte c1
   def retirerUneCarte(l1:List[Cartes],c1:Cartes) : List[Cartes]= (l1,c1) match
      case (Nil,_) => l1
-     case (x::y,_) => if(x==c1) then y else x::retirerUneCarte(y,c1)
+     case (x::y,_) => if x==c1 then y else x::retirerUneCarte(y,c1)
 
   //entrée : une liste de carte et le jeu complet
   //sortie : une liste contenant toute les cartes moins les cartes qui sont dans l1
@@ -185,7 +187,7 @@ object Cartes:
   //de l1 et une liste de cartes contenant toutes les cartes du jeu moins celles de l1 et moins la première
   def toutesPossibilitesPour5(l1:List[Cartes],l2:List[Cartes],l3:List[Cartes]) : List[List[Cartes]] = (l2,l3) match
     case (a::Nil,Nil) => Nil
-    case (a::b,Nil) => toutesPossibilitesPour5(l1,b,suivant(b))
+    case (a::b,c::Nil) => toutesPossibilitesPour5(l1,b,suivant(b))
     case (a::b,c::d) => List(l1:::a::Nil:::c::Nil):::toutesPossibilitesPour5(l1,l2,d)
 
   //entrée : une liste de cartes de taille 5
@@ -195,7 +197,143 @@ object Cartes:
   //entrée : une liste de cartes
   //sortie : une liste contenant toutes les cartes du jeu moins celles de l1 et sans le premier élément
   def retirerDesCartesEtLaPremiere(l1:List[Cartes]) : List[Cartes] = l1 match
-    case (x::y) => retirerDesCartes(y)
+    case Nil => Nil
+    case x::y => retirerDesCartes(y)
+
+  def retirerDesCartesEtLes2Premieres(l1:List[Cartes]) : List[Cartes] = l1 match
+    case Nil => Nil
+    case x::y => retirerDesCartesEtLaPremiere(y)
+
+  def retirerDesCartesEtLes3Premieres(l1:List[Cartes]) : List[Cartes] = l1 match
+    case Nil => Nil
+    case x::y => retirerDesCartesEtLes2Premieres(y)
+
+  def retirerDesCartesEtLes4Premieres(l1:List[Cartes]) : List[Cartes] = l1 match
+    case Nil => Nil
+    case x::y => retirerDesCartesEtLes3Premieres(y)
+
+  //entrée : une liste de cartes de taille 2 et des listes initialialement le jeu complet
+  //sortie : une liste de listes de taille 7 incluant la liste d'avant avec toutes les combinaisons possibles
+  def toutesPossibilitesPour2(l1:List[Cartes],l2:List[Cartes],l3:List[Cartes],l4:List[Cartes],l5:List[Cartes],l6:List[Cartes]) : List[List[Cartes]] = (l2,l3,l4,l5,l6) match
+    case (g::h::i::j::Nil,d::e::f::Nil,b::c::Nil,a::Nil,Nil) => Nil
+    case (a::b,c::d::e::f::Nil,g::h::i::Nil,j::k::Nil,l::Nil) => toutesPossibilitesPour2(l1,b,suivant(b),suivant(suivant(b)),suivant(suivant(suivant(b))),suivant(suivant(suivant(suivant(b)))))
+    case (_,a::b,c::d::e::Nil,f::g::Nil,h::Nil) => toutesPossibilitesPour2(l1,l2,b,suivant(b),suivant(suivant(b)),suivant(suivant(suivant(b))))
+    case (_,_,a::b,c::d::Nil,e::Nil) => toutesPossibilitesPour2(l1,l2,l3,b,suivant(b),suivant(suivant(b)))
+    case (_,_,_,a::b,c::Nil) => toutesPossibilitesPour2(l1,l2,l3,l4,b,suivant(b))
+    case (a::b,c::d,e::f,g::h,i::j) => List(l1:::a::Nil:::c::Nil:::e::Nil:::g::Nil:::i::Nil):::toutesPossibilitesPour2(l1,l2,l3,l4,l5,j)
+
+  def toutesPossibilitesPour2V2(l1:List[Cartes]) : List[List[Cartes]] = toutesPossibilitesPour2(l1,retirerDesCartes(l1),retirerDesCartesEtLaPremiere(l1),retirerDesCartesEtLes2Premieres(l1),retirerDesCartesEtLes3Premieres(l1),retirerDesCartesEtLes4Premieres(l1))
+
+  //entrée : une liste de listes de 7 cartes et un compteur initialement à 0
+  //sortie : le nombre de liste qui contiennent une paire dans la liste de liste
+  @tailrec
+  def nombrePaireDansList(l1:List[List[Cartes]], compteur:Int) : Int = l1 match
+    case Nil => compteur
+    case x::y => if isPair(x) then nombrePaireDansList(y,compteur+1) else nombrePaireDansList(y,compteur)
+  
+  @tailrec
+  def nombreDoublePaireDansList(l1:List[List[Cartes]], compteur:Int) : Int = l1 match
+    case Nil => compteur
+    case x::y => if isTwoPair(x,0) then nombreDoublePaireDansList(y,compteur+1) else nombreDoublePaireDansList(y,compteur)
+
+  @tailrec
+  def nombreBrelanDansList(l1:List[List[Cartes]], compteur:Int) : Int = l1 match
+    case Nil => compteur
+    case x::y => if isBrelan(x) then nombreBrelanDansList(y,compteur+1) else nombreBrelanDansList(y,compteur)
+
+  @tailrec
+  def nombreQuinteDansList(l1:List[List[Cartes]], compteur:Int) : Int = l1 match
+    case Nil => compteur
+    case x::y => if isQuinte(x,0) then nombreQuinteDansList(y,compteur+1) else nombreQuinteDansList(y,compteur)
+
+  @tailrec
+  def nombreCouleurDansList(l1:List[List[Cartes]], compteur:Int) : Int = l1 match
+    case Nil => compteur
+    case x::y => if isFlush(x,0,0,0,0) then nombreCouleurDansList(y,compteur+1) else nombreCouleurDansList(y,compteur)
+
+  @tailrec
+  def nombreFullDansList(l1:List[List[Cartes]], compteur:Int) : Int = l1 match
+    case Nil => compteur
+    case x::y => if isFull(x) then nombreFullDansList(y,compteur+1) else nombreFullDansList(y,compteur)
+
+  @tailrec
+  def nombreCarreDansList(l1:List[List[Cartes]], compteur:Int) : Int = l1 match
+    case Nil => compteur
+    case x::y => if isCarre(x) then nombreCarreDansList(y,compteur+1) else nombreCarreDansList(y,compteur)
+
+  @tailrec
+  def nombreQuinteFlushDansList(l1:List[List[Cartes]], compteur:Int) : Int = l1 match
+    case Nil => compteur
+    case x::y => if isQuinteFlush(x) then nombreQuinteFlushDansList(y,compteur+1) else nombreQuinteFlushDansList(y,compteur)
+
+  @tailrec
+  def nombreQuinteFlushRoyaleDansList(l1:List[List[Cartes]], compteur:Int) : Int = l1 match
+    case Nil => compteur
+    case x::y => if isQuinteFlushRoyale(x,Couleur.CARREAU,-1,0) then nombreQuinteFlushRoyaleDansList(y,compteur+1) else nombreQuinteFlushRoyaleDansList(y,compteur)
+
+  //calcul de probabilité quand la main est de 6 cartes ouvertes/fermées
+  def probabilitePaireDans6(l1:List[Cartes]) : Double = nombrePaireDansList(toutesPossibilitesPour6V2(l1),0)/46.0
+  def probabiliteDoublePaireDans6(l1:List[Cartes]) : Double = nombreDoublePaireDansList(toutesPossibilitesPour6V2(l1),0)/46.0
+  def probabiliteBrelanDans6(l1:List[Cartes]) : Double = nombreBrelanDansList(toutesPossibilitesPour6V2(l1),0)/46.0
+  def probabiliteQuinteDans6(l1:List[Cartes]) : Double = nombreQuinteDansList(toutesPossibilitesPour6V2(l1),0)/46.0
+  def probabiliteCouleurDans6(l1:List[Cartes]) : Double = nombreCouleurDansList(toutesPossibilitesPour6V2(l1),0)/46.0
+  def probabiliteFullDans6(l1:List[Cartes]) : Double = nombreFullDansList(toutesPossibilitesPour6V2(l1),0)/46.0
+  def probabiliteCarreDans6(l1:List[Cartes]) : Double = nombreCarreDansList(toutesPossibilitesPour6V2(l1),0)/46.0
+  def probabiliteQuinteFlushDans6(l1:List[Cartes]) : Double = nombreQuinteFlushDansList(toutesPossibilitesPour6V2(l1),0)/46.0
+  def probabiliteQuinteFlushRoyaleDans6(l1:List[Cartes]) : Double = nombreQuinteFlushRoyaleDansList(toutesPossibilitesPour6V2(l1),0)/46.0
+
+  //calcul de probabilité quand la main est de 5 cartes ouvertes/fermées
+  def probabilitePaireDans5(l1:List[Cartes]) : Double = nombrePaireDansList(toutesPossibilitesPour5V2(l1),0)/1081.0
+  def probabiliteDoublePaireDans5(l1:List[Cartes]) : Double = nombreDoublePaireDansList(toutesPossibilitesPour5V2(l1),0)/1081.0
+  def probabiliteBrelanDans5(l1:List[Cartes]) : Double = nombreBrelanDansList(toutesPossibilitesPour5V2(l1),0)/1081.0
+  def probabiliteQuinteDans5(l1:List[Cartes]) : Double = nombreQuinteDansList(toutesPossibilitesPour5V2(l1),0)/1081.0
+  def probabiliteCouleurDans5(l1:List[Cartes]) : Double = nombreCouleurDansList(toutesPossibilitesPour5V2(l1),0)/1081.0
+  def probabiliteFullDans5(l1:List[Cartes]) : Double = nombreFullDansList(toutesPossibilitesPour5V2(l1),0)/1081.0
+  def probabiliteCarreDans5(l1:List[Cartes]) : Double = nombreCarreDansList(toutesPossibilitesPour5V2(l1),0)/1081.0
+  def probabiliteQuinteFlushDans5(l1:List[Cartes]) : Double = nombreQuinteFlushDansList(toutesPossibilitesPour5V2(l1),0)/1081.0
+  def probabiliteQuinteFlushRoyaleDans5(l1:List[Cartes]) : Double = nombreQuinteFlushRoyaleDansList(toutesPossibilitesPour5V2(l1),0)/1081.0
+
+  //calcul de probabilité quand la main est de 2 cartes ouvertes/fermées
+  def probabilitePaireDans2(l1:List[Cartes]) : Double = nombrePaireDansList(toutesPossibilitesPour2V2(l1),0)/1081.0
+  def probabiliteDoublePaireDans2(l1:List[Cartes]) : Double = nombreDoublePaireDansList(toutesPossibilitesPour2V2(l1),0)/1081.0
+  def probabiliteBrelanDans2(l1:List[Cartes]) : Double = nombreBrelanDansList(toutesPossibilitesPour2V2(l1),0)/1081.0
+  def probabiliteQuinteDans2(l1:List[Cartes]) : Double = nombreQuinteDansList(toutesPossibilitesPour2V2(l1),0)/1081.0
+  def probabiliteCouleurDans2(l1:List[Cartes]) : Double = nombreCouleurDansList(toutesPossibilitesPour2V2(l1),0)/1081.0
+  def probabiliteFullDans2(l1:List[Cartes]) : Double = nombreFullDansList(toutesPossibilitesPour2V2(l1),0)/1081.0
+  def probabiliteCarreDans2(l1:List[Cartes]) : Double = nombreCarreDansList(toutesPossibilitesPour2V2(l1),0)/1081.0
+  def probabiliteQuinteFlushDans2(l1:List[Cartes]) : Double = nombreQuinteFlushDansList(toutesPossibilitesPour2V2(l1),0)/1081.0
+  def probabiliteQuinteFlushRoyaleDans2(l1:List[Cartes]) : Double = nombreQuinteFlushRoyaleDansList(toutesPossibilitesPour2V2(l1),0)/1081.0
+  
+  //entrée : la main du joueur (cartes fermées et ouvertes) et la main qu'il veut avoir
+  //sortie : probabilité d'avoir cette main quand toutes les cartes sont distribuées (5 cartes dans le jeu et 2 dans la main)
+  def probabilite(l1:List[Cartes], main: Hand) : Double = (l1.length,main) match
+    case (6,Hand.Paire) => probabilitePaireDans6(l1)
+    case (5,Hand.Paire) => probabilitePaireDans5(l1)
+    case (2,Hand.Paire) => probabilitePaireDans2(l1)
+    case (6,Hand.DoublePaire) => probabiliteDoublePaireDans6(l1)
+    case (5,Hand.DoublePaire) => probabiliteDoublePaireDans5(l1)
+    case (2,Hand.DoublePaire) => probabiliteDoublePaireDans2(l1)
+    case (6,Hand.Brelan) => probabiliteBrelanDans6(l1)
+    case (5,Hand.Brelan) => probabiliteBrelanDans5(l1)
+    case (2,Hand.Brelan) => probabiliteBrelanDans2(l1)
+    case (6,Hand.Quinte) => probabiliteQuinteDans6(l1)
+    case (5,Hand.Quinte) => probabiliteQuinteDans5(l1)
+    case (2,Hand.Quinte) => probabiliteQuinteDans2(l1)
+    case (6,Hand.Couleur) => probabiliteCouleurDans6(l1)
+    case (5,Hand.Couleur) => probabiliteCouleurDans5(l1)
+    case (2,Hand.Couleur) => probabiliteCouleurDans2(l1)
+    case (6,Hand.Full) => probabiliteFullDans6(l1)
+    case (5,Hand.Full) => probabiliteFullDans5(l1)
+    case (2,Hand.Full) => probabiliteFullDans2(l1)
+    case (6,Hand.Carre) => probabiliteCarreDans6(l1)
+    case (5,Hand.Carre) => probabiliteCarreDans5(l1)
+    case (2,Hand.Carre) => probabiliteCarreDans2(l1)
+    case (6,Hand.QuinteFlush) => probabiliteQuinteFlushDans6(l1)
+    case (5,Hand.QuinteFlush) => probabiliteQuinteFlushDans5(l1)
+    case (2,Hand.QuinteFlush) => probabiliteQuinteFlushDans2(l1)
+    case (6,Hand.QuinteFlushRoyale) => probabiliteQuinteFlushRoyaleDans6(l1)
+    case (5,Hand.QuinteFlushRoyale) => probabiliteQuinteFlushRoyaleDans5(l1)
+    case (2,Hand.QuinteFlushRoyale) => probabiliteQuinteFlushRoyaleDans2(l1)
 
   //entrée : une liste de cartes
   //sortie : la même liste sans la première carte

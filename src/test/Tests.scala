@@ -166,4 +166,49 @@ class Tests extends AnyFlatSpec {
 
     toutesPossibilitesPour6V2(l0) shouldBe finale
   }
+
+  "toutes possibilitees pour 5v2" should "be defined" in {
+    val l0 = List(Cartes.P(Valeur.AS,Couleur.COEUR), Cartes.P(Valeur.DEUX,Couleur.COEUR), Cartes.P(Valeur.TROIS,Couleur.COEUR), Cartes.P(Valeur.QUATRE,Couleur.COEUR))
+    toutesPossibilitesPour5V2(l0).length shouldBe 1081
+  }
+
+  "toutes possibilitees pour 2v2" should "be defined" in {
+    val l0 = List(Cartes.P(Valeur.AS,Couleur.COEUR), Cartes.P(Valeur.DEUX,Couleur.COEUR))
+    toutesPossibilitesPour2V2(l0).length shouldBe 2118760
+  }
+
+  "proba a partir de 6 cartes d'avoir une paire" should "be defined" in {
+    val l0 = List(Cartes.P(Valeur.AS,Couleur.COEUR), Cartes.P(Valeur.DEUX,Couleur.COEUR), Cartes.P(Valeur.TROIS,Couleur.COEUR), Cartes.P(Valeur.QUATRE,Couleur.COEUR), Cartes.P(Valeur.CINQ,Couleur.COEUR), Cartes.P(Valeur.SIX,Couleur.COEUR))
+    probabilitePaireDans6(l0) shouldBe 0.391304347826087
+  }
+
+  "test probabilite" should "be defined" in {
+    val l0 = List(Cartes.P(Valeur.AS,Couleur.COEUR), Cartes.P(Valeur.DEUX,Couleur.COEUR), Cartes.P(Valeur.TROIS,Couleur.COEUR), Cartes.P(Valeur.QUATRE,Couleur.COEUR),Cartes.P(Valeur.CINQ,Couleur.COEUR), Cartes.P(Valeur.SIX,Couleur.COEUR))
+    probabilite(l0,Hand.Paire) shouldBe 0.391304347826087
+  }
+
+  "test probabilite2" should "be defined" in {
+    val l0 = List(Cartes.P(Valeur.AS,Couleur.COEUR), Cartes.P(Valeur.DEUX,Couleur.COEUR), Cartes.P(Valeur.TROIS,Couleur.COEUR), Cartes.P(Valeur.QUATRE,Couleur.COEUR),Cartes.P(Valeur.CINQ,Couleur.COEUR), Cartes.P(Valeur.SIX,Couleur.COEUR))
+    probabilite(l0,Hand.QuinteFlushRoyale) shouldBe 0
+  }
+
+  "test probabilite3" should "be defined" in {
+    val l0 = List(Cartes.P(Valeur.DIX,Couleur.CARREAU), Cartes.P(Valeur.VALET,Couleur.CARREAU), Cartes.P(Valeur.DAME,Couleur.CARREAU), Cartes.P(Valeur.ROI,Couleur.CARREAU),Cartes.P(Valeur.AS,Couleur.CARREAU))
+    probabilite(l0,Hand.Brelan) shouldBe 0
+  }
+
+  "test probabilite4" should "be defined" in {
+    val l0 = List(Cartes.P(Valeur.DIX,Couleur.CARREAU), Cartes.P(Valeur.VALET,Couleur.CARREAU), Cartes.P(Valeur.DAME,Couleur.CARREAU), Cartes.P(Valeur.ROI,Couleur.CARREAU),Cartes.P(Valeur.AS,Couleur.CARREAU),Cartes.P(Valeur.DEUX,Couleur.CARREAU))
+    probabilite(l0,Hand.Brelan) shouldBe 0
+  }
+
+  "test probabilite5" should "be defined" in {
+    val l0 = List(Cartes.P(Valeur.DIX,Couleur.PIQUE), Cartes.P(Valeur.DIX,Couleur.TREFLE), Cartes.P(Valeur.DIX,Couleur.CARREAU), Cartes.P(Valeur.ROI,Couleur.CARREAU),Cartes.P(Valeur.AS,Couleur.CARREAU),Cartes.P(Valeur.DEUX,Couleur.CARREAU))
+    probabilite(l0,Hand.Carre) shouldBe 0.021739130434782608
+  }
+
+  "test probabilite6" should "be defined" in {
+    val l0 = List(Cartes.P(Valeur.DIX,Couleur.PIQUE), Cartes.P(Valeur.DIX,Couleur.TREFLE), Cartes.P(Valeur.ROI,Couleur.CARREAU), Cartes.P(Valeur.DAME,Couleur.COEUR),Cartes.P(Valeur.AS,Couleur.CARREAU))
+    probabilite(l0,Hand.DoublePaire) shouldBe 0.35892691951896394
+  }
 }
