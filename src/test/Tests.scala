@@ -6,6 +6,7 @@ import scala.util.Sorting
 
 class Tests extends AnyFlatSpec {
 
+  
   "BestHand Carre" should "be defined" in {
     val l = List[Cartes](Cartes.P(Valeur.CINQ,Couleur.CARREAU),Cartes.P(Valeur.CINQ,Couleur.COEUR),Cartes.P(Valeur.CINQ,Couleur.TREFLE),Cartes.P(Valeur.CINQ,Couleur.PIQUE),Cartes.P(Valeur.SIX,Couleur.CARREAU),Cartes.P(Valeur.SIX,Couleur.COEUR),Cartes.P(Valeur.SIX,Couleur.PIQUE))
 
@@ -46,7 +47,7 @@ class Tests extends AnyFlatSpec {
   }
 
   "BestHand Flush" should "be defined" in {
-    val l = List[Cartes]( Cartes.P(Valeur.DEUX, Couleur.CARREAU), Cartes.P(Valeur.QUATRE, Couleur.CARREAU),Cartes.P(Valeur.SEPT, Couleur.CARREAU), Cartes.P(Valeur.DIX, Couleur.CARREAU), Cartes.P(Valeur.VALET, Couleur.CARREAU),Cartes.P(Valeur.DAME, Couleur.CARREAU),Cartes.P(Valeur.ROI, Couleur.CARREAU))
+    val l = List[Cartes](Cartes.P(Valeur.DEUX, Couleur.CARREAU), Cartes.P(Valeur.QUATRE, Couleur.CARREAU),Cartes.P(Valeur.SEPT, Couleur.CARREAU), Cartes.P(Valeur.DIX, Couleur.CARREAU), Cartes.P(Valeur.VALET, Couleur.CARREAU),Cartes.P(Valeur.DAME, Couleur.CARREAU),Cartes.P(Valeur.ROI, Couleur.CARREAU))
 
     isFlush(l,0,0,0,0) shouldBe true
     reCoulFlush(l,0,0,0,0) shouldBe Couleur.CARREAU
@@ -57,8 +58,12 @@ class Tests extends AnyFlatSpec {
   "BestHand Quinte" should "be defined" in {
     val l = List[Cartes](Cartes.P(Valeur.SEPT, Couleur.CARREAU), Cartes.P(Valeur.HUIT, Couleur.COEUR), Cartes.P(Valeur.NEUF, Couleur.TREFLE), Cartes.P(Valeur.DIX, Couleur.CARREAU), Cartes.P(Valeur.VALET, Couleur.PIQUE),Cartes.P(Valeur.DAME, Couleur.PIQUE),Cartes.P(Valeur.ROI, Couleur.COEUR))
 
+    val lBis = List[Cartes](Cartes.P(Valeur.UN, Couleur.CARREAU), Cartes.P(Valeur.DEUX, Couleur.CARREAU),Cartes.P(Valeur.TROIS, Couleur.CARREAU), Cartes.P(Valeur.QUATRE, Couleur.CARREAU), Cartes.P(Valeur.CINQ, Couleur.CARREAU))
+
+    isQuinte(lBis,0) shouldBe true
     isQuinte(l,0) shouldBe true
     bestHand(l) shouldBe l
+    bestHand(lBis) shouldBe lBis
   }
 
   "BestHand Brelan" should "be defined" in {
@@ -92,7 +97,7 @@ class Tests extends AnyFlatSpec {
     val l = List[Cartes](Cartes.P(Valeur.DEUX,Couleur.PIQUE),Cartes.P(Valeur.CINQ,Couleur.CARREAU),Cartes.P(Valeur.SIX,Couleur.CARREAU),Cartes.P(Valeur.DAME,Couleur.COEUR),Cartes.P(Valeur.ROI,Couleur.TREFLE))
 
     val corre = List[Cartes](Cartes.P(Valeur.ROI,Couleur.TREFLE))
-
+    l.sorted(new PlayingCardValue) shouldBe l
     bestHand(l) shouldBe corre
   }
 
