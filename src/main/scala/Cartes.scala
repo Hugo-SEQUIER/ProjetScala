@@ -509,6 +509,30 @@ object Cartes:
                     else
                       bestCard(l)
 
+  def bestHandBis(l:List[Cartes]) : Int =
+    if isQuinteFlush(l) then
+      if isQuinteFlushRoyale(l,Couleur.CARREAU,-1,0) then 10 else 9
+    else
+      if isCarre(l) then 8
+      else
+        if isFull(l) then 7
+        else
+          if isFlush(l,0,0,0,0) then 6
+          else
+            if isQuinte(l,0) then 5
+            else
+              if isBrelan(l) then 4
+              else
+                if isTwoPair(l,0) then 3
+                else
+                  if isPair(l) then 2
+                  else
+                    1
+
+  /** Normalement bestCard retourne obligatoirement une liste de taille 1 contenant la carte la plus forte donc pas de case NiL sinon c'est louche */
+  def bestHandBetween(l:List[Cartes],l1:List[Cartes]): Int = if bestHandBis(l) > bestHandBis(l1) then 1 else
+    if bestHandBis(l) < bestHandBis(l1) then -1 else (bestCard(l),bestCard(l1)) match
+      case (Cartes.P(x:Valeur,_)::_,Cartes.P(y:Valeur,_)::_) => if x.ordinal > y.ordinal then 1 else if x.ordinal < y.ordinal then -1 else 0
 
   def probabilityHighCard(l:List[Cartes],m:Int) : Int = 1;
 
