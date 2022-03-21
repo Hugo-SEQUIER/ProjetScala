@@ -5,6 +5,7 @@ import scala.annotation.tailrec
 object Cartes:
 
   enum Valeur :
+    case UN
     case DEUX
     case TROIS
     case QUATRE
@@ -29,6 +30,7 @@ object Cartes:
     case P(v: Valeur, c: Couleur)
 
   def valueOf(s: String): Cartes = s match
+    case "UN ♥" => Cartes.P(Valeur.UN,Couleur.COEUR)
     case "AS ♥" => Cartes.P(Valeur.AS,Couleur.COEUR)
     case "2 ♥" => Cartes.P(Valeur.DEUX,Couleur.COEUR)
     case "3 ♥" => Cartes.P(Valeur.TROIS,Couleur.COEUR)
@@ -43,6 +45,7 @@ object Cartes:
     case "DAME ♥" => Cartes.P(Valeur.DAME,Couleur.COEUR)
     case "ROI ♥" => Cartes.P(Valeur.ROI,Couleur.COEUR)
     case "AS ☘" => Cartes.P(Valeur.AS,Couleur.TREFLE)
+    case "UN ☘" => Cartes.P(Valeur.UN,Couleur.TREFLE)
     case "2 ☘" => Cartes.P(Valeur.DEUX,Couleur.TREFLE)
     case "3 ☘" => Cartes.P(Valeur.TROIS,Couleur.TREFLE)
     case "4 ☘" => Cartes.P(Valeur.QUATRE,Couleur.TREFLE)
@@ -56,6 +59,7 @@ object Cartes:
     case "DAME ☘" => Cartes.P(Valeur.DAME,Couleur.TREFLE)
     case "ROI ☘" => Cartes.P(Valeur.ROI,Couleur.TREFLE)
     case "AS ♠" => Cartes.P(Valeur.AS,Couleur.PIQUE)
+    case "UN ♠" => Cartes.P(Valeur.UN,Couleur.PIQUE)
     case "2 ♠" => Cartes.P(Valeur.DEUX,Couleur.PIQUE)
     case "3 ♠" => Cartes.P(Valeur.TROIS,Couleur.PIQUE)
     case "4 ♠" => Cartes.P(Valeur.QUATRE,Couleur.PIQUE)
@@ -69,6 +73,7 @@ object Cartes:
     case "DAME ♠" => Cartes.P(Valeur.DAME,Couleur.PIQUE)
     case "ROI ♠" => Cartes.P(Valeur.ROI,Couleur.PIQUE)
     case "AS ♦" => Cartes.P(Valeur.AS,Couleur.CARREAU)
+    case "UN ♦" => Cartes.P(Valeur.UN,Couleur.CARREAU)
     case "2 ♦" => Cartes.P(Valeur.DEUX,Couleur.CARREAU)
     case "3 ♦" => Cartes.P(Valeur.TROIS,Couleur.CARREAU)
     case "4 ♦" => Cartes.P(Valeur.QUATRE,Couleur.CARREAU)
@@ -81,6 +86,7 @@ object Cartes:
     case "VALET ♦" => Cartes.P(Valeur.VALET,Couleur.CARREAU)
     case "DAME ♦" => Cartes.P(Valeur.DAME,Couleur.CARREAU)
     case "ROI ♦" => Cartes.P(Valeur.ROI,Couleur.CARREAU)
+
 
   enum Hand:
     case Hauteur
