@@ -7,9 +7,6 @@
     <list default="true" id="6a0f1e15-dda1-447a-8d70-46a3f92733a9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Cartes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Cartes.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Tests.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Tests.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.tasty" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,6 +145,9 @@
       <workItem from="1647703979102" duration="14541000" />
       <workItem from="1648037139351" duration="1122000" />
       <workItem from="1648038444700" duration="1274000" />
+      <workItem from="1648039775754" duration="719000" />
+      <workItem from="1648045625142" duration="15000" />
+      <workItem from="1648045740505" duration="5000" />
     </task>
     <servers />
   </component>

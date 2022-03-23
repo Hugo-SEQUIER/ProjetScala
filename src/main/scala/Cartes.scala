@@ -424,8 +424,6 @@ object Cartes:
   //sortie : toutes les combinaisons sous la forme de la fonction juste au dessus
   def combinaisonsV2Pour6(l1:List[Cartes],l2:List[Cartes], l3:List[Cartes]) : List[List[Cartes]] = combinaisons(toutesPossibilitesPour6V3(l1:::l3,l2),toutesPossibilitesAutresJoueursPour6(l2,l3,l1,l2),toutesPossibilitesAutresJoueursPour6(l2,l3,l1,l2))
   
-  
-  
   /** Hugo complète à partir de là */
 
   def nbOccurence(l: List[Cartes],v : Valeur) : Int = l match
