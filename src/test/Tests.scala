@@ -227,11 +227,18 @@ class Tests extends AnyFlatSpec {
   val mainClassiquePour5 = List(Cartes.P(Valeur.AS,Couleur.COEUR), Cartes.P(Valeur.DEUX,Couleur.COEUR), Cartes.P(Valeur.TROIS,Couleur.COEUR), Cartes.P(Valeur.QUATRE,Couleur.COEUR),Cartes.P(Valeur.CINQ,Couleur.COEUR))
   val cartes3Adversaires = List(Cartes.P(Valeur.SEPT,Couleur.COEUR),Cartes.P(Valeur.HUIT,Couleur.COEUR),Cartes.P(Valeur.NEUF,Couleur.COEUR),Cartes.P(Valeur.DIX,Couleur.COEUR),Cartes.P(Valeur.VALET,Couleur.COEUR),Cartes.P(Valeur.DAME,Couleur.COEUR))
 
-  "test combinaisons2" should "be defined" in {
+  "test combinaisonsPour5" should "be defined" in {
     val l1 = List(Cartes.P(Valeur.DIX,Couleur.PIQUE), Cartes.P(Valeur.DIX,Couleur.TREFLE))
     val l2 = List(Cartes.P(Valeur.TROIS,Couleur.COEUR),Cartes.P(Valeur.QUATRE,Couleur.COEUR))
     val l3 = List(Cartes.P(Valeur.CINQ,Couleur.COEUR),Cartes.P(Valeur.SIX,Couleur.COEUR),Cartes.P(Valeur.SEPT,Couleur.COEUR))
     combinaisonsV2Pour5(l1,l2,l3).size shouldBe 1092
+  }
+
+  "test combinaisonsPour6" should "be defined" in {
+    val l1 = List(Cartes.P(Valeur.DIX,Couleur.PIQUE), Cartes.P(Valeur.DIX,Couleur.TREFLE))
+    val l2 = cartes3Adversaires
+    val l3 = List(Cartes.P(Valeur.CINQ,Couleur.COEUR),Cartes.P(Valeur.SIX,Couleur.COEUR),Cartes.P(Valeur.SEPT,Couleur.CARREAU),Cartes.P(Valeur.DAME,Couleur.CARREAU))
+    combinaisonsV2Pour6(l1,l2,l3).size shouldBe 4800
   }
 
   "test toutesPossibilitesPour6V3" should "be defined" in {

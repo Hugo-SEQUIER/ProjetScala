@@ -8,26 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Cartes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Cartes.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/Tests.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Tests.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$$anon$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$$anon$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$$anon$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$$anon$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$$anon$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$$anon$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Cartes$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Cartes$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Cartes$P$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Cartes$P$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Cartes$P.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Cartes$P.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Cartes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Cartes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Couleur$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Couleur$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Couleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Couleur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Hand$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Hand$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Hand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Hand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$PlayingCardValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$PlayingCardValue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$PlayingHandRanking.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$PlayingHandRanking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Valeur$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Valeur$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Valeur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$Valeur.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/test-classes/Tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/test-classes/Tests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/test-classes/Tests.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/test-classes/Tests.tasty" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +49,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../tp/build.sbt" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
-  <component name="RunManager" selected="ScalaTest.Tests.test combinaisons2 should be defined">
+  <component name="RunManager" selected="ScalaTest.Tests.test combinaisons1 should be defined">
     <configuration name="Tests.test combinaisons1 should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="ProjetScala" />
       <option name="allowRunningInParallel" value="false" />
@@ -96,6 +78,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tests.test combinaisonsPour6 should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="ProjetScala" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="testKind" value="Test name" />
+      <option name="testClassPath" value="Tests" />
+      <option name="testName" value="test combinaisonsPour6 should be defined" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tests.test toutesPossibilitesAutresJoueursPour5 should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="ProjetScala" />
       <option name="allowRunningInParallel" value="false" />
@@ -106,20 +102,6 @@
       <option name="testKind" value="Test name" />
       <option name="testClassPath" value="Tests" />
       <option name="testName" value="test toutesPossibilitesAutresJoueursPour5 should be defined" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tests.test toutesPossibilitesAutresJoueursPour6 should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
-      <module name="ProjetScala" />
-      <option name="allowRunningInParallel" value="false" />
-      <option name="projectPathOnTarget" />
-      <option name="selectedOptions">
-        <list />
-      </option>
-      <option name="testKind" value="Test name" />
-      <option name="testClassPath" value="Tests" />
-      <option name="testName" value="test toutesPossibilitesAutresJoueursPour6 should be defined" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -140,11 +122,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="ScalaTest.Tests.test combinaisons2 should be defined" />
         <item itemvalue="ScalaTest.Tests.test combinaisons1 should be defined" />
+        <item itemvalue="ScalaTest.Tests.test combinaisonsPour6 should be defined" />
+        <item itemvalue="ScalaTest.Tests.test combinaisons2 should be defined" />
         <item itemvalue="ScalaTest.Tests.toutes possibilitees pour 5v2 should be defined" />
         <item itemvalue="ScalaTest.Tests.test toutesPossibilitesAutresJoueursPour5 should be defined" />
-        <item itemvalue="ScalaTest.Tests.test toutesPossibilitesAutresJoueursPour6 should be defined" />
       </list>
     </recent_temporary>
   </component>
@@ -164,6 +146,8 @@
       <workItem from="1647685777061" duration="196000" />
       <workItem from="1647686375932" duration="2000" />
       <workItem from="1647703979102" duration="14541000" />
+      <workItem from="1648037139351" duration="1122000" />
+      <workItem from="1648038444700" duration="1274000" />
     </task>
     <servers />
   </component>

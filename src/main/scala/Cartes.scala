@@ -424,6 +424,8 @@ object Cartes:
   //sortie : toutes les combinaisons sous la forme de la fonction juste au dessus
   def combinaisonsV2Pour6(l1:List[Cartes],l2:List[Cartes], l3:List[Cartes]) : List[List[Cartes]] = combinaisons(toutesPossibilitesPour6V3(l1:::l3,l2),toutesPossibilitesAutresJoueursPour6(l2,l3,l1,l2),toutesPossibilitesAutresJoueursPour6(l2,l3,l1,l2))
   
+  
+  
   /** Hugo complète à partir de là */
 
   def nbOccurence(l: List[Cartes],v : Valeur) : Int = l match
@@ -619,7 +621,7 @@ object Cartes:
                   if isPair(l) then 2
                   else
                     1
-
+  
   /** Normalement bestCard retourne obligatoirement une liste de taille 1 contenant la carte la plus forte donc pas de case NiL sinon c'est louche */
   def bestHandBetween(l:List[Cartes],l1:List[Cartes]): Int = if bestHandBis(l) > bestHandBis(l1) then 1 else
     if bestHandBis(l) < bestHandBis(l1) then -1 else (bestCard(l),bestCard(l1)) match
