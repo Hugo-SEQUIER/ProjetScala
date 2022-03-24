@@ -31,12 +31,12 @@ object Cartes:
     case P(v: Valeur, c: Couleur)
 
   def valueOf(s: Cartes): String = s match
-    case Cartes.P(Valeur.UN,Couleur.COEUR) => "UN♥" 
-    case Cartes.P(Valeur.AS,Couleur.COEUR) => "AS♥" 
-    case Cartes.P(Valeur.DEUX,Couleur.COEUR) => "2♥" 
-    case Cartes.P(Valeur.TROIS,Couleur.COEUR) => "3♥"  
-    case Cartes.P(Valeur.QUATRE,Couleur.COEUR)=> "4♥" 
-    case Cartes.P(Valeur.CINQ,Couleur.COEUR)=> "5♥" 
+    case Cartes.P(Valeur.UN,Couleur.COEUR) => "AS♥"
+    case Cartes.P(Valeur.AS,Couleur.COEUR) => "AS♥"
+    case Cartes.P(Valeur.DEUX,Couleur.COEUR) => "2♥"
+    case Cartes.P(Valeur.TROIS,Couleur.COEUR) => "3♥"
+    case Cartes.P(Valeur.QUATRE,Couleur.COEUR)=> "4♥"
+    case Cartes.P(Valeur.CINQ,Couleur.COEUR)=> "5♥"
     case Cartes.P(Valeur.SIX,Couleur.COEUR) => "6♥"
     case Cartes.P(Valeur.SEPT,Couleur.COEUR) => "7♥"
     case Cartes.P(Valeur.HUIT,Couleur.COEUR) => "8♥"
@@ -46,7 +46,7 @@ object Cartes:
     case Cartes.P(Valeur.DAME,Couleur.COEUR) => "DAME♥"
     case Cartes.P(Valeur.ROI,Couleur.COEUR) => "ROI♥"
     case Cartes.P(Valeur.AS,Couleur.TREFLE) =>"AS☘"
-    case Cartes.P(Valeur.UN,Couleur.TREFLE) => "UN☘"
+    case Cartes.P(Valeur.UN,Couleur.TREFLE) => "AS☘"
     case Cartes.P(Valeur.DEUX,Couleur.TREFLE) => "2☘"
     case Cartes.P(Valeur.TROIS,Couleur.TREFLE )=> "3☘"
     case Cartes.P(Valeur.QUATRE,Couleur.TREFLE) => "4☘"
@@ -60,7 +60,7 @@ object Cartes:
     case Cartes.P(Valeur.DAME,Couleur.TREFLE) => "DAME☘"
     case Cartes.P(Valeur.ROI,Couleur.TREFLE) => "ROI☘"
     case Cartes.P(Valeur.AS,Couleur.PIQUE) => "AS♠"
-    case Cartes.P(Valeur.UN,Couleur.PIQUE) => "UN♠"
+    case Cartes.P(Valeur.UN,Couleur.PIQUE) => "AS♠"
     case Cartes.P(Valeur.DEUX,Couleur.PIQUE) => "2♠"
     case Cartes.P(Valeur.TROIS,Couleur.PIQUE) => "3♠"
     case Cartes.P(Valeur.QUATRE,Couleur.PIQUE) => "4♠"
@@ -74,7 +74,7 @@ object Cartes:
     case Cartes.P(Valeur.DAME,Couleur.PIQUE) => "DAME♠"
     case Cartes.P(Valeur.ROI,Couleur.PIQUE) => "ROI♠"
     case Cartes.P(Valeur.AS,Couleur.CARREAU) => "AS♦"
-    case Cartes.P(Valeur.UN,Couleur.CARREAU) => "UN♦"
+    case Cartes.P(Valeur.UN,Couleur.CARREAU) => "AS♦"
     case Cartes.P(Valeur.DEUX,Couleur.CARREAU) => "2♦"
     case Cartes.P(Valeur.TROIS,Couleur.CARREAU) => "3♦"
     case Cartes.P(Valeur.QUATRE,Couleur.CARREAU) => "4♦"
@@ -89,11 +89,11 @@ object Cartes:
     case Cartes.P(Valeur.ROI,Couleur.CARREAU) => "ROI♦"
 
   //entrée : une liste de cartes
-  //sortie : un string correspondant aux cartes 
+  //sortie : un string correspondant aux cartes
   def afficheValeur(l : List[Cartes]): String = l match
     case Nil => ""
     case x::xs => valueOf(x) + " " + afficheValeur(xs)
-    
+
   enum Hand:
     case Hauteur
     case Paire
@@ -472,11 +472,6 @@ object Cartes:
       case Cartes.P(va,c)::xs => if va == v then Cartes.P(va,c)::deleteAllExcept(xs,v) else deleteAllExcept(xs,v)
 
   //entrée : une liste de cartes trié (la main du joueur)
-  //sortie : la valeur de la première carte
-  def reValueCard(l:List[Cartes]): Valeur = l match
-    case Cartes.P(va,c)::xs => va
-
-  //entrée : une liste de cartes trié (la main du joueur)
   //sortie : true si le joueur possède une paire sinon false
   @tailrec
   def isPair(l: List[Cartes]): Boolean = l match
@@ -717,4 +712,3 @@ object Cartes:
       case (Cartes.P(x:Valeur,_)::_,Cartes.P(y:Valeur,_)::_) => if x.ordinal > y.ordinal then 1 else if x.ordinal < y.ordinal then -1 else 0
 
   def probabilityHighCard(l:List[Cartes],m:Int) : Int = 1;
-
