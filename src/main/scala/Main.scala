@@ -10,6 +10,12 @@ object Main {
 
     printf("\n FONCTION NUMERO 1 \n")
 
+    val l = mesCartes:::tableau
+    val besthandPlayer = bestHand(l.sorted(new PlayingCardValue))
+    printf("Voici les cartes du joueur : " + afficheValeur(mesCartes) + "\n")
+    printf("Voici les cartes à la rivière : " + afficheValeur(tableau) + "\n")
+    printf("Voici la meilleur main que le joueur possède : " + afficheValeur(besthandPlayer) + "\n")
+
     printf("\n___________________________________________________________________\n")
     
     printf("\n FONCTION NUMERO 2 \n")
