@@ -215,6 +215,14 @@ object Cartes:
     case (a::b,c::Nil) => toutesPossibilitesPour5(l1,b,suivant(b))
     case (a::b,c::d) => List(l1:::a::c::Nil):::toutesPossibilitesPour5(l1,l2,d)
 
+  //entrée : une liste de carte de taille 5, une liste de carte contenant toutes les cartes du jeu sans les cartes
+  //de l1 et une liste de cartes contenant toutes les cartes du jeu moins celles de l1 et moins la première
+  def toutesPossibilitesPour4(l1:List[Cartes],l2:List[Cartes],l3:List[Cartes],l4:List[Cartes]) : List[List[Cartes]] = (l2,l3,l4) match
+    case (e::f::Nil,h::Nil,Nil) => Nil
+    case (a::b,c::d::Nil,e::Nil) => toutesPossibilitesPour4(l1,suivant(b),suivant(suivant(b)),suivant(suivant(suivant(b))))
+    case (a::b,c::d,e::Nil) => toutesPossibilitesPour4(l1,b,suivant(b),suivant(suivant(b)))
+    case (a::b,c::d,e::f) => List(l1:::a::c::e::Nil):::toutesPossibilitesPour4(l1,l2,l3,f)
+
   //entrée : une liste de cartes de taille 5
   //sortie : une liste de listes de taille 7 incluant la liste d'avant avec toutes les combinaisons possibles
   def toutesPossibilitesPour5V2(l1:List[Cartes]) : List[List[Cartes]] = toutesPossibilitesPour5(l1,retirerDesCartes(l1),retirerDesCartesEtLaPremiere(l1))
@@ -225,7 +233,7 @@ object Cartes:
 
   /** fonctions qui ne marche pas ------------------------------------------------------------------------------------------------------*/
 
-  //entrée : une liste de cartes de taille 2 et des listes initialialement le jeu complet
+  //entrée : une liste de cartes de taille 2 et des listes initialialement parmi le jeu complet
   //sortie : une liste de listes de taille 7 incluant la liste d'avant avec toutes les combinaisons possibles
   def toutesPossibilitesPour2(l1:List[Cartes],l2:List[Cartes],l3:List[Cartes],l4:List[Cartes],l5:List[Cartes],l6:List[Cartes]) : List[List[Cartes]] = (l2,l3,l4,l5,l6) match
     case (g::h::i::j::Nil,d::e::f::Nil,b::c::Nil,a::Nil,Nil) => Nil
@@ -429,7 +437,17 @@ object Cartes:
   //entrée : la liste des cartes du joueur (main) et une liste contenant toutes les cartes des autres joueurs (mains) et une liste du jeu
   //sortie : toutes les combinaisons sous la forme de la fonction juste au dessus
   def combinaisonsV2Pour6(l1:List[Cartes],l2:List[Cartes], l3:List[Cartes]) : List[List[Cartes]] = combinaisons(toutesPossibilitesPour6V3(l1:::l3,l2),toutesPossibilitesAutresJoueursPour6(l2,l3,l1,l2),toutesPossibilitesAutresJoueursPour6(l2,l3,l1,l2))
-  
+
+  def nbrCombinaisonGagnante(l1:List[List[Cartes]]) : Double = l1 match
+    case Nil => 0.0
+    case x::y => if bestHandBetween(x.take(7),x.takeRight(7)) == 1 then nbrCombinaisonGagnante(y)+1.0 else nbrCombinaisonGagnante(y)
+
+  /** fonction généraliste numéro 4 */
+  //entrée : l1 : liste des cartes du joueur, l2 : liste des cartes en jeu, l3 : liste des cartes des autres
+  def fonction4(l1:List[Cartes],l2:List[Cartes],l3:List[Cartes]): Double = if l2.size == 3 then
+    nbrCombinaisonGagnante(combinaisonsV2Pour5(l1,l3,l2)) / combinaisonsV2Pour5(l1,l3,l2).size
+    else nbrCombinaisonGagnante(combinaisonsV2Pour6(l1,l3,l2)) / combinaisonsV2Pour5(l1,l3,l2).size
+
   /** Fonction utilisé pour calculer ce que le joueur a dans sa main */
 
   //entrée : une liste de cartes trié (la main du joueur), ainsi que la valeur d'une carte
