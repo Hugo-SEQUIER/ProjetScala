@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a0f1e15-dda1-447a-8d70-46a3f92733a9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/scala/Main.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/Cartes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Cartes.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/Tests.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Tests.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.tasty" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +38,9 @@
     <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="26ZLkpoXrlHFW7kiPqs1u391nmr" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -46,35 +52,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../tp/build.sbt" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
-  <component name="RunManager" selected="ScalaTest.Tests.test combinaisons1 should be defined">
-    <configuration name="Tests.test combinaisons1 should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
-      <module name="ProjetScala" />
-      <option name="allowRunningInParallel" value="false" />
-      <option name="projectPathOnTarget" />
-      <option name="selectedOptions">
-        <list />
-      </option>
-      <option name="testKind" value="Test name" />
-      <option name="testClassPath" value="Tests" />
-      <option name="testName" value="test combinaisons1 should be defined" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tests.test combinaisons2 should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
-      <module name="ProjetScala" />
-      <option name="allowRunningInParallel" value="false" />
-      <option name="projectPathOnTarget" />
-      <option name="selectedOptions">
-        <list />
-      </option>
-      <option name="testKind" value="Test name" />
-      <option name="testClassPath" value="Tests" />
-      <option name="testName" value="test combinaisons2 should be defined" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="ScalaTest.Tests.test combinaisonsSimple should be defined">
     <configuration name="Tests.test combinaisonsPour6 should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="ProjetScala" />
       <option name="allowRunningInParallel" value="false" />
@@ -85,6 +63,20 @@
       <option name="testKind" value="Test name" />
       <option name="testClassPath" value="Tests" />
       <option name="testName" value="test combinaisonsPour6 should be defined" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests.test combinaisonsSimple should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="ProjetScala" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="testKind" value="Test name" />
+      <option name="testClassPath" value="Tests" />
+      <option name="testName" value="test combinaisonsSimple should be defined" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -103,7 +95,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tests.toutes possibilitees pour 5v2 should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+    <configuration name="Tests.test toutesPossibilitesAutresJoueursPour6 should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="ProjetScala" />
       <option name="allowRunningInParallel" value="false" />
       <option name="projectPathOnTarget" />
@@ -112,17 +104,31 @@
       </option>
       <option name="testKind" value="Test name" />
       <option name="testClassPath" value="Tests" />
-      <option name="testName" value="toutes possibilitees pour 5v2 should be defined" />
+      <option name="testName" value="test toutesPossibilitesAutresJoueursPour6 should be defined" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests.test toutesPossibilitesPour6V3 should be defined" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="ProjetScala" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="testKind" value="Test name" />
+      <option name="testClassPath" value="Tests" />
+      <option name="testName" value="test toutesPossibilitesPour6V3 should be defined" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="ScalaTest.Tests.test combinaisons1 should be defined" />
+        <item itemvalue="ScalaTest.Tests.test combinaisonsSimple should be defined" />
         <item itemvalue="ScalaTest.Tests.test combinaisonsPour6 should be defined" />
-        <item itemvalue="ScalaTest.Tests.test combinaisons2 should be defined" />
-        <item itemvalue="ScalaTest.Tests.toutes possibilitees pour 5v2 should be defined" />
+        <item itemvalue="ScalaTest.Tests.test toutesPossibilitesPour6V3 should be defined" />
+        <item itemvalue="ScalaTest.Tests.test toutesPossibilitesAutresJoueursPour6 should be defined" />
         <item itemvalue="ScalaTest.Tests.test toutesPossibilitesAutresJoueursPour5 should be defined" />
       </list>
     </recent_temporary>
@@ -148,6 +154,8 @@
       <workItem from="1648039775754" duration="719000" />
       <workItem from="1648045625142" duration="15000" />
       <workItem from="1648045740505" duration="5000" />
+      <workItem from="1648072629801" duration="224000" />
+      <workItem from="1648130105259" duration="2143000" />
     </task>
     <servers />
   </component>
