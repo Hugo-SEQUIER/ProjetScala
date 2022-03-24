@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a0f1e15-dda1-447a-8d70-46a3f92733a9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/Cartes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Cartes.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Cartes.tasty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.1.0/classes/Main.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.1.0/classes/Main.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Main.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,6 +146,7 @@
       <workItem from="1648130105259" duration="2143000" />
       <workItem from="1648137670298" duration="3359000" />
       <workItem from="1648141603512" duration="4917000" />
+      <workItem from="1648146635166" duration="235000" />
     </task>
     <servers />
   </component>

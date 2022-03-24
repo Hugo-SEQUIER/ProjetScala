@@ -5,6 +5,7 @@ object Main {
 
     val mesCartes = List(Cartes.P(Valeur.QUATRE,Couleur.COEUR),Cartes.P(Valeur.CINQ,Couleur.COEUR))
     val tableau = List(Cartes.P(Valeur.AS,Couleur.COEUR),Cartes.P(Valeur.DEUX,Couleur.COEUR),Cartes.P(Valeur.TROIS,Couleur.COEUR))
+    val cartes3Adversaires = List(Cartes.P(Valeur.SIX,Couleur.COEUR),Cartes.P(Valeur.SEPT,Couleur.COEUR),Cartes.P(Valeur.HUIT,Couleur.COEUR),Cartes.P(Valeur.NEUF,Couleur.COEUR),Cartes.P(Valeur.DIX,Couleur.COEUR),Cartes.P(Valeur.VALET,Couleur.COEUR))
 
     printf("\n___________________________________________________________________\n")
 
@@ -33,6 +34,11 @@ object Main {
     printf("\n___________________________________________________________________\n")
 
     printf("\n FONCTION NUMERO 4 \n")
+
+    //ne fonctionne pas mais la logique est là
+
+    val res = fonction4(mesCartes,tableau,cartes3Adversaires)
+    printf("La probabilité de gagner à la fin du tirage est de : " + res)
 
     printf("\n___________________________________________________________________\n")
   }
