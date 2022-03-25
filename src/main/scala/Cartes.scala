@@ -215,14 +215,6 @@ object Cartes:
     case (a::b,c::Nil) => toutesPossibilitesPour5(l1,b,suivant(b))
     case (a::b,c::d) => List(l1:::a::c::Nil):::toutesPossibilitesPour5(l1,l2,d)
 
-  //entrée : une liste de carte de taille 5, une liste de carte contenant toutes les cartes du jeu sans les cartes
-  //de l1 et une liste de cartes contenant toutes les cartes du jeu moins celles de l1 et moins la première
-  def toutesPossibilitesPour4(l1:List[Cartes],l2:List[Cartes],l3:List[Cartes],l4:List[Cartes]) : List[List[Cartes]] = (l2,l3,l4) match
-    case (e::f::Nil,h::Nil,Nil) => Nil
-    case (a::b,c::d::Nil,e::Nil) => toutesPossibilitesPour4(l1,suivant(b),suivant(suivant(b)),suivant(suivant(suivant(b))))
-    case (a::b,c::d,e::Nil) => toutesPossibilitesPour4(l1,b,suivant(b),suivant(suivant(b)))
-    case (a::b,c::d,e::f) => List(l1:::a::c::e::Nil):::toutesPossibilitesPour4(l1,l2,l3,f)
-
   //entrée : une liste de cartes de taille 5
   //sortie : une liste de listes de taille 7 incluant la liste d'avant avec toutes les combinaisons possibles
   def toutesPossibilitesPour5V2(l1:List[Cartes]) : List[List[Cartes]] = toutesPossibilitesPour5(l1,retirerDesCartes(l1),retirerDesCartesEtLaPremiere(l1))
@@ -230,6 +222,14 @@ object Cartes:
   //entrée : liste de 5 cartes de la main du joueur (et du jeu) et une liste contenant toutes les cartes des adversaires
   //sortie : toutes les combinaisons qu'il peut obtenir à la fin de la distribution
   def toutesPossibilitesPour5V3(l1:List[Cartes],l2:List[Cartes]): List[List[Cartes]] = toutesPossibilitesPour5(l1,retirerDesCartes(l1:::l2),retirerDesCartesEtLaPremiere(l1:::l2))
+
+  //entrée : une liste de carte de taille 5, une liste de carte contenant toutes les cartes du jeu sans les cartes
+  //de l1 et une liste de cartes contenant toutes les cartes du jeu moins celles de l1 et moins la première
+  def toutesPossibilitesPour4(l1:List[Cartes],l2:List[Cartes],l3:List[Cartes],l4:List[Cartes]) : List[List[Cartes]] = (l2,l3,l4) match
+    case (e::f::Nil,h::Nil,Nil) => Nil
+    case (a::b,c::d::Nil,e::Nil) => toutesPossibilitesPour4(l1,suivant(b),suivant(suivant(b)),suivant(suivant(suivant(b))))
+    case (a::b,c::d,e::Nil) => toutesPossibilitesPour4(l1,b,suivant(b),suivant(suivant(b)))
+    case (a::b,c::d,e::f) => List(l1:::a::c::e::Nil):::toutesPossibilitesPour4(l1,l2,l3,f)
 
   /** fonctions qui ne marche pas ------------------------------------------------------------------------------------------------------*/
 
